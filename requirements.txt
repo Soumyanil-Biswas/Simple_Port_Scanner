@@ -1,7 +1,1 @@
-Open Terminal in linux:
-
-1. Install figlet:
-$ apt-get install figlet -y
-
-2. Install lolcat:
-$ apt-get install lolcat -y
+pyfiglet==0.8.post0
