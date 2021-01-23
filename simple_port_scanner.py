@@ -40,3 +40,5 @@ if __name__ == "__main__":
 	totalTime = time.time() - startTime
 	totalTime='%.3f'%totalTime
 	print(bcolors.CYAN+f"\n[+] Scan Completed\n[+] Time Taken : {totalTime}s\n")
+
+	
