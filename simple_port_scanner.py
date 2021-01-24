@@ -41,3 +41,4 @@ for i in range(s_port, e_port+1):
 totalTime = time.time() - startTime
 totalTime='%.3f'%totalTime
 print(PURPLE+f"\n[+] Scan Completed\n[+] Time Taken : {totalTime}s\n")
+
