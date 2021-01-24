@@ -1,1 +1,1 @@
-pyfiglet==0.8.post0
+sudo pip3 install -U python-nmap
