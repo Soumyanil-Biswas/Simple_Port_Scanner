@@ -5,6 +5,8 @@ import time
 
 RED = '\033[91m'
 PURPLE = '\033[95m'
+YEL = '\033[93m'
+WHITE = '\033[37m'
 ENDC = '\033[0m'
 
 s_port = int(input("Enter Starting port: "))
@@ -33,12 +35,16 @@ for i in range(s_port, e_port+1):
     # and state of port
 
     if(res == 'closed'):
-        print('| Port:',i,' | State:', RED+f'{res}'+ENDC)
+        print('| Port:',i,' | '+WHITE+f'State:'+ENDC, RED+f'{res}'+ENDC)
         continue
 
-    print('| Port:',i,' | State:', res)
+
+    if(res == 'filtered'):
+        print('| Port:',i,' | '+WHITE+f'State:'+ENDC, YEL+f'{res}'+ENDC)
+        continue
+
+    print('| Port:',i,' | '+WHITE+f'State:'+ENDC, res)
 
 totalTime = time.time() - startTime
 totalTime='%.3f'%totalTime
 print(PURPLE+f"\n[+] Scan Completed\n[+] Time Taken : {totalTime}s\n")
-
