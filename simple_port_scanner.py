@@ -2,6 +2,7 @@
 
 import nmap
 import time
+import socket
 
 RED = '\033[91m'
 PURPLE = '\033[95m'
@@ -12,7 +13,16 @@ ENDC = '\033[0m'
 s_port = int(input("Enter Starting port: "))
 e_port = int(input("Enter Ending port: "))
 
-trgt_ip = input("Enter target: ")
+enquire = input("What do you want to search? --> [ip/host]: ")
+
+if(enquire == 'ip'):
+    trgt_ip = input("Enter target: ")
+
+if(enquire == 'host'):
+    host = input("Enter hostname: ")
+    trgt_ip = socket.gethostbyname(host)
+    
+print("Target ip: ", trgt_ip)
 
 # input validation -> IP excludes only space from string
 trgt_ip = trgt_ip.strip()
@@ -38,7 +48,6 @@ for i in range(s_port, e_port+1):
         print('| Port:',i,' | '+WHITE+f'State:'+ENDC, RED+f'{res}'+ENDC)
         continue
 
-
     if(res == 'filtered'):
         print('| Port:',i,' | '+WHITE+f'State:'+ENDC, YEL+f'{res}'+ENDC)
         continue
@@ -46,5 +55,5 @@ for i in range(s_port, e_port+1):
     print('| Port:',i,' | '+WHITE+f'State:'+ENDC, res)
 
 totalTime = time.time() - startTime
-totalTime='%.3f'%totalTime
+totalTime ='%.3f'%totalTime
 print(PURPLE+f"\n[+] Scan Completed\n[+] Time Taken : {totalTime}s\n")
