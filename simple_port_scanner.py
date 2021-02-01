@@ -13,7 +13,7 @@ ENDC = '\033[0m'
 s_port = int(input("Enter Starting port: "))
 e_port = int(input("Enter Ending port: "))
 
-enquire = input("What do you want to search? --> [ip/host]: ")
+enquire = input("What do you want to scan? --> [ip/host]: ")
 
 if(enquire == 'ip'):
     trgt_ip = input("Enter target: ")
