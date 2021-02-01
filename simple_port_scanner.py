@@ -4,6 +4,14 @@ import nmap
 import time
 import socket
 
+GREEN = '\033[92m'
+Blue = '\033[94m'
+Cyan = '\033[96m'
+Magenta = '\033[95m'
+Grey = '\033[90m'
+Black = '\033[90m'
+Default = '\033[99m'
+
 RED = '\033[91m'
 PURPLE = '\033[95m'
 YEL = '\033[93m'
@@ -31,7 +39,7 @@ scanner = nmap.PortScanner()
 
 #For loop for iteration
 
-print("-"*25)
+print("_"*30)
 
 startTime = time.time()
 
@@ -51,9 +59,12 @@ for i in range(s_port, e_port+1):
     if(res == 'filtered'):
         print('| Port:',i,' | '+WHITE+f'State:'+ENDC, YEL+f'{res}'+ENDC)
         continue
-
+    
+    res = res.upper();
     print('| Port:',i,' | '+WHITE+f'State:'+ENDC, res)
 
 totalTime = time.time() - startTime
 totalTime ='%.3f'%totalTime
 print(PURPLE+f"\n[+] Scan Completed\n[+] Time Taken : {totalTime}s\n")
+
+
